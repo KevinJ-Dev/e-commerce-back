@@ -6,7 +6,7 @@
 
 PHP Version 7.4.11 Installer PHP -- Mettre à jour PHP en 8
 MySQL Installer MySQL ou Installer MariaDB
-Symfony version 6.1.2 minimum avec le CLI(Binaire) Symfony Installer Symfony -- Installer Binaire Symfony
+Symfony version 6.1.2 avec le CLI(Binaire) Symfony Installer Symfony -- Installer Binaire Symfony
 Composer Installer Composer
 Npm Installer Npm
 Yarn Installer Yarn
@@ -23,7 +23,7 @@ Ensuite, dans l'ordre taper les commandes dans votre terminal :
 
 2 installer la base de donnée MySQL. Pour paramétrer la création de votre base de donnée, rdv dans le fichier .env du projet, et modifier la variable d'environnement selon vos paramètres :
 
-DATABASE_URL=mysql://User:Password@127.0.0.1:3306/nameDatabasse?serverVersion=5.7
+DATABASE_URL="mysql://db_user:db_password@127.0.0.1:3306/db_name?serverVersion=5.7&charset=utf8mb4"
 
 Puis exécuter la création de la base de donnée avec la commande : symfony console doctrine:database:create
 

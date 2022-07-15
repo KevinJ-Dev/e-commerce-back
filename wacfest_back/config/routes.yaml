@@ -1,3 +1,13 @@
 controllers:
     resource: ../src/Controller/
     type: attribute
+
+
+
+# config/routes/annotations.yaml
+#api_post_edit:
+
+login :
+    path:       /login
+    controller: App\Controller\BlogApiController::index
+

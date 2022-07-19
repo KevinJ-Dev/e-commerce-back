@@ -15,17 +15,17 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column()]
     private ?int $id = null;
 
-    #[ORM\Column(length: 180, unique: true)]
-    private ?string $email = null;
+    private string $pseudo;
+    private ?string $password = null;
 
+    private $age;
     #[ORM\Column]
-    private array $roles = [];
 
+    private ?string $email = null;
+    #[ORM\Column]
     /**
      * @var string The hashed password
      */
-    #[ORM\Column]
-    private ?string $password = null;
 
     public function getId(): ?int
     {
@@ -44,6 +44,29 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
+    public function getPseudo(): ?string
+    {
+        return $this->pseudo;
+    }
+
+    public function setPseudo(string $pseudo): self
+    {
+        $this->pseudo = $pseudo;
+
+        return $this;
+    }
+    public function getAge(): ?string
+    {
+        return $this->age;
+    }
+
+    public function setAge(int $age): self
+    {
+        $this->age = $age;
+
+        return $this;
+    }
+
     /**
      * A visual identifier that represents this user.
      *
@@ -51,7 +74,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     public function getUserIdentifier(): string
     {
-        return (string) $this->email;
+        return (string) $this->pseudo;
     }
 
     /**

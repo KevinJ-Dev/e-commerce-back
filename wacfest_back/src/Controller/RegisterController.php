@@ -8,7 +8,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Security\Core\Validator\Constraints\UserPassword;
 
 class RegisterController extends AbstractController
 {
@@ -16,21 +15,21 @@ class RegisterController extends AbstractController
 
 
     public function register(Request $request, UserRepository $repo): JsonResponse {
+        $user = new User();
+        $pseudo =  $request->request->get('pseudo');
+        $email = $request->request->get('email');
+        $age = $request->request->get('age');
+        $password = "sdsfssdmlfqklmks";
+        $user->setEmail($email);
+        $user->setPseudo($pseudo);
+        $user->setAge($age);
+        $user->setPassword(PASSWORD_BCRYPT, $password);
+        $user->setRoles(['user'=>$user]);
+        $repo->add($user, true);
 
-$user = new User();
-$user->setEmail($request->request->get('email'));
+        return $response = new JsonResponse(['user' => 'email'] 
 
-
-echo $user->getEmail();
-
-$repo->add($user);
-
-
-
-
-
-
-return $response = new JsonResponse(['data' => 123]);
+);
 
 
     }

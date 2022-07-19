@@ -20,12 +20,11 @@ final class Version20220719085353 extends AbstractMigration
     public function up(Schema $schema): void
     {
 
-        $this->addSql('CREATE TABLE IF NOT EXISTS `users` (
+        $this->addSql('CREATE TABLE IF NOT EXISTS `user` (
             `id` int NOT NULL AUTO_INCREMENT,
-            `prenom` varchar(255) NOT NULL,
-            `nom` varchar(255) NOT NULL,
-            `email` varchar(255) NOT NULL,
-            `password` varchar(255) NOT NULL,
+            `pseudo` varchar(255),
+            `email` varchar(255) Null,
+            `password` varchar(255) ,
             `age` int NOT NULL,
             `user_role` varchar(255),
             PRIMARY KEY (`id`)
@@ -35,6 +34,6 @@ final class Version20220719085353 extends AbstractMigration
 
     public function down(Schema $schema): void
     {
-$this->addSql('DROP TABLE users');
+$this->addSql('DROP TABLE user');
     }
 }

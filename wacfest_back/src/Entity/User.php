@@ -14,15 +14,21 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\GeneratedValue]
     #[ORM\Column()]
     private ?int $id = null;
+   
+    #[ORM\Column()]
 
-    private string $pseudo;
-    private ?string $password = null;
+    private ?string $pseudo = null;
+    #[ORM\Column()]
 
-    private $age;
-    #[ORM\Column]
+    private ?int $age = null;
+    #[ORM\Column()]
 
     private ?string $email = null;
-    #[ORM\Column]
+    
+    #[ORM\Column()]
+
+    private ?string $password = null;
+
     /**
      * @var string The hashed password
      */
@@ -60,7 +66,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->age;
     }
 
-    public function setAge(int $age): self
+    public function setAge($age): self
     {
         $this->age = $age;
 

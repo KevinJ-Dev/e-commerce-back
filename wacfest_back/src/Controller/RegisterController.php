@@ -15,10 +15,11 @@ class RegisterController extends AbstractController
 
 
     public function register(Request $request, UserRepository $repo): JsonResponse {
+
         $user = new User();
         $pseudo =  $request->request->get('pseudo');
         $email = $request->request->get('email');
-        $age = $request->request->get('age');
+        $age = intval($request->request->get('age'));
         $password = "sdsfssdmlfqklmks";
         $user->setEmail($email);
         $user->setPseudo($pseudo);

@@ -19,13 +19,11 @@ class LoginController extends AbstractController
  
     public function login() {
 
-
-
         return $this->json([
             'message' => 'You are log in',
             'path' => 'src/Controller/LoginController.php',
         ]);
     }
 
-    
+
 }

@@ -28,13 +28,13 @@ class RegisterController extends AbstractController
         $user->setPseudo($pseudo);
         $user->setAge($age);
         $pass = $request->request->get('password');
-        $password = $passwordHasher->hashPassword( $user, $pass );
+        $password = $passwordHasher->hashPassword( $user ,$pass);
         $user->setPassword($password);
         // $user->setPassword(PASSWORD_BCRYPT, $password);
         $user->setRoles(['user'=>$user]);
         $repo->add($user, true);
 
-        return $response = new JsonResponse(['user' => 'email'] 
+        return $response = new JsonResponse(['user' => "email"] 
 
 );
 

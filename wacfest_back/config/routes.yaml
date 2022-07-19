@@ -9,7 +9,7 @@ controllers:
 
 app_api_login :
     path:       /login
-    controller: App\Controller\ApiLoginController::index
+    controller: App\Controller\ApiLoginController::login
     methods:    POST
 
 

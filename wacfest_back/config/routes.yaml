@@ -7,7 +7,11 @@ controllers:
 # config/routes/annotations.yaml
 #api_post_edit:
 
-app_api_login :
+login :
+    path:       /login
+    controller: App\Controller\ApiLoginController::index
+    methods:    GET
+App :
     path:       /login
     controller: App\Controller\ApiLoginController::login
     methods:    POST

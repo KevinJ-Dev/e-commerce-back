@@ -15,15 +15,13 @@ class RegisterController extends AbstractController
     #[Route('/register', name: 'register', methods: ['POST'])]
 
 
-    public function register(Request $request, UserRepository $repo, UserPasswordHasherInterface $passwordHasher): JsonResponse {
+    public function register(Request $request, UserRepository $repo, UserPasswordHasherInterface $passwordHasher) {
 
         $user = new User();
-   
-
         $pseudo =  $request->request->get('pseudo');
         $email = $request->request->get('email');
         $age = intval($request->request->get('age'));
-        $password = "sdsfssdmlfqklmks";
+        $password = $request->request->get("password");
         $user->setEmail($email);
         $user->setPseudo($pseudo);
         $user->setAge($age);
@@ -34,10 +32,20 @@ class RegisterController extends AbstractController
         $user->setRoles(['user'=>$user]);
         $repo->add($user, true);
 
-        return $response = new JsonResponse(['user' => "email"] 
 
-);
+        return $this->redirectToRoute('login', [
+           "pseudo" => $user->getEmail(),
+           "email" => $user->getEmail(),
+            "age" => $user->getAge(),
+            "password" => $user->getPassword(),
+
+        ]);
 
 
+
+    }
+
+    public function validator() {
+        return "";
     }
 }

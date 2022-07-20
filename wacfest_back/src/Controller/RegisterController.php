@@ -18,12 +18,14 @@ class RegisterController extends AbstractController
     public function register(Request $request, UserRepository $repo, UserPasswordHasherInterface $passwordHasher) {
 
         $user = new User();
-        $pseudo =  $request->request->get('pseudo');
+        $prenom =  $request->request->get('prenom');
+        $nom =  $request->request->get('nom');
         $email = $request->request->get('email');
         $age = intval($request->request->get('age'));
         $password = $request->request->get("password");
         $user->setEmail($email);
-        $user->setPseudo($pseudo);
+        $user->setPrenom($prenom);
+        $user->setNom($nom);
         $user->setAge($age);
         $pass = $request->request->get('password');
         $password = $passwordHasher->hashPassword( $user ,$pass);

@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Users;
-use App\Repository\UserRepository;
+use App\Repository\UsersRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -15,9 +15,9 @@ class RegisterController extends AbstractController
     #[Route('/register', name: 'register', methods: ['POST'])]
 
 
-    public function register(Request $request, UserRepository $repo, UserPasswordHasherInterface $passwordHasher) {
+    public function register(Request $request, UsersRepository $repo, UserPasswordHasherInterface $passwordHasher) {
 
-        $user = new User();
+        $user = new Users();
         $prenom =  $request->request->get('prenom');
         $nom =  $request->request->get('nom');
         $email = $request->request->get('email');
@@ -42,8 +42,6 @@ class RegisterController extends AbstractController
             "password" => $user->getPassword(),
 
         ]);
-
-
 
     }
 

@@ -4,18 +4,18 @@ namespace App\Entity;
 
 use App\Repository\TicketsRepository;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
-use Symfony\Component\Security\Core\User\UserInterface;
+
+
 
 /**
  * Tickets
  *
- * @ORM\Table(name="tickets")
+ * @ORM\Table(name="Tickets")
  * @ORM\Entity
  *  * @ORM\Entity(repositoryClass="App\Repository\TicketsRepository")
  */
 
-#[ORM\Entity(repositoryClass: TicketsRepository::class)]
+
 
 class Tickets
 {
@@ -26,7 +26,7 @@ class Tickets
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private int $id;
+    private  $id;
 
     /**
      * @var string
@@ -52,12 +52,9 @@ class Tickets
     /**
      * @var int
      *
-     * @ORM\Column(name="id", type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\Column(name="price", type="integer", nullable=false)
      */
-    private int $price;
-
+    private $price;
 
 
 

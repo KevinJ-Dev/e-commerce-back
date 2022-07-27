@@ -54,7 +54,14 @@ class Tickets
      *
      * @ORM\Column(name="price", type="integer", nullable=false)
      */
-    private $price;
+    private int $price;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="stock", type="integer", nullable=false)
+     */
+    private int $stock;
 
 
 
@@ -125,6 +132,22 @@ class Tickets
     public function setPrice(int $price): void
     {
         $this->price = $price;
+    }
+
+    /**
+     * @return int
+     */
+    public function getStock(): int
+    {
+        return $this->stock;
+    }
+
+    /**
+     * @param int $stock
+     */
+    public function setStock(int $stock): void
+    {
+        $this->stock = $stock;
     }
 
 }
